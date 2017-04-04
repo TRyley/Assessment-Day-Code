@@ -11,9 +11,9 @@ namespace Assessment
         }
         private void Seperate()
         {
-            Write("__________________________");
-            Write("__________________________");
-            Write("");
+            Write("__________________________", 1);
+            Write("__________________________", 1);
+            Write("", 0);
         }
         private bool CheckEntered(string query)
         {
@@ -22,7 +22,7 @@ namespace Assessment
 
             if (i <= 0 || i >= 200)
             {
-                Write("Pretty sure thats not possible, \n");
+                Write("Pretty sure thats not possible, \n", 20);
                 return false;
             }
             return result;
@@ -36,7 +36,7 @@ namespace Assessment
                 bool isCorrectValue = false;
                 while (!isCorrectValue)
                 {
-                    Write("Enter Your Age:");
+                    Write("Enter Your Age:", 20);
                     entered = Console.ReadLine();
                     isCorrectValue = CheckEntered(entered);
                 }
@@ -46,7 +46,7 @@ namespace Assessment
                 isCorrectValue = false;
                 while (!isCorrectValue)
                 {
-                    Write("Enter Your Resting Heart Rate (bpm):");
+                    Write("Enter Your Resting Heart Rate (bpm):", 20);
                     entered = Console.ReadLine();
                     isCorrectValue = CheckEntered(entered);
                 }
@@ -56,8 +56,8 @@ namespace Assessment
 
                 Calculate(age, restHeartRate);
 
-                Write("");
-                Write("Type 'y' to repeat, any other input will close the app");
+                Write("", 0);
+                Write("Type 'y' to repeat, any other input will close the app", 20);
 
                 var input = Console.ReadLine();
 
@@ -70,7 +70,7 @@ namespace Assessment
                     Seperate();
                 }
             }
-            Write("Have a good day!");
+            Write("Have a good day!", 20);
             Thread.Sleep(1000);
         }
         private void AnimateSpinner()
@@ -92,8 +92,8 @@ namespace Assessment
         }
         private void Calculate(float age, float rhr)
         {
-            Write("Intensity   |   Heart Rate");
-            Write("--------------------------");
+            Write("Intensity   |   Heart Rate", 20);
+            Write("--------------------------", 5);
             for (float i = 55; i <= 95; i++)
             {
                 if (i % 5 == 0)
@@ -102,16 +102,16 @@ namespace Assessment
 
                     var target = Math.Floor((((220 - age) - rhr) * intensity) + rhr);
 
-                    Write("    " + i + "%     |     " + target + "     ");
+                    Write("    " + i + "%     |     " + target + "     ", 20);
                 }
             }
         }
-        private void Write(string text)
+        private void Write(string text, int wait)
         {
             foreach (char c in text)
             {
                 Console.Write(c);
-                Thread.Sleep(20);
+                Thread.Sleep(wait);
             }
             Console.Write('\n');
         }
