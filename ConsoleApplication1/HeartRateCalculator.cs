@@ -11,8 +11,8 @@ namespace Assessment
         }
         private void Seperate()
         {
-            Write("__________________________", 1);
-            Write("__________________________", 1);
+            Write("__________________________", 5);
+            Write("__________________________", 5);
             Write("", 0);
         }
         private bool CheckEntered(string query)
@@ -78,7 +78,7 @@ namespace Assessment
             int timer = 0;
 
             Random rnd = new Random();
-            int timerCompare = rnd.Next(8, 64);
+            int timerCompare = rnd.Next(12, 64);
 
             Spinner loader = new Spinner();
 
